@@ -1,0 +1,93 @@
+/* game.css */
+.game-root {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 18px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.game-header { display:flex; gap:16px; align-items:center; justify-content:space-between; }
+.dish-image { width:320px; height:220px; object-fit:cover; border-radius:10px; }
+.game-body { display:flex; gap:18px; margin-top:18px; }
+.dish-panel { flex: 1; text-align:center; }
+.play-panel { flex: 1; display:flex; flex-direction:column; gap:12px; }
+.players-list ul { list-style:none; padding:0; }
+.guess-box { display:flex; gap:8px; }
+.guess-box input { flex:1; padding:10px; }
+.guess-box button { padding:10px 14px; }
+
+.message-popup {
+  position: fixed;
+  right: 24px;
+  top: 100px;
+  background: rgba(17,24,39,0.95);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 999;
+}
+
+.message-popup.success{ background: linear-gradient(90deg,#2ecc71,#16a34a); box-shadow:0 12px 28px rgba(22,163,74,0.18); }
+.popups-root{ position: fixed; right: 24px; top: 24px; display:flex; flex-direction:column; gap:10px; z-index:1000 }
+
+.message-popup.notice{ background: linear-gradient(90deg,#f0f6ff,#eef2ff); color:var(--text); box-shadow: 0 8px 20px rgba(15,23,42,0.04); border: 1px solid rgba(15,23,42,0.04) }
+
+/* Lobby settings form tweaks to match existing UI */
+.lobby-settings{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
+.lobby-settings .form-row{ display:flex; flex-direction:column; font-weight:600; color:var(--text) }
+.lobby-settings .form-input{ padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,0.06); width:140px }
+
+/* Confetti */
+.confetti-root{ position: fixed; left:0; right:0; top:0; bottom:0; pointer-events:none; overflow:hidden; z-index:1100 }
+.confetti-piece{ position:absolute; top:-10vh; width:10px; height:16px; border-radius:2px; opacity:0.95; transform-origin:center; animation-name:confettiFall; animation-timing-function:cubic-bezier(.2,.6,.2,1); }
+@keyframes confettiFall{
+  0%{ transform: translateY(-10vh) rotate(0deg); opacity:1 }
+  60%{ opacity:1 }
+  100%{ transform: translateY(120vh) rotate(360deg); opacity:0 }
+}
+
+/* Meta (rounds + timer) styling */
+.dish-area{ text-align:center }
+.dish-title{ text-align:center; display:inline-block }
+
+.meta { font-weight: 700; color: #2b2b2b; font-size: 16px; display:flex; gap:8px; align-items:center; }
+.meta .rounds{ color:var(--text); }
+.meta .timer{ color:#6b6b6b; font-weight:600 }
+
+.dish-area h3{ margin-top:10px; font-size:20px; color:var(--text) }
+.dish-img{ display:block; margin:0 auto }
+
+/* Ingredient chips and groups */
+.ingredients-box{ margin-top:14px; display:flex; flex-direction:column; gap:8px }
+.ingredient-group{ display:flex; gap:8px; align-items:center; flex-wrap:wrap }
+.group-title{ font-size:13px; font-weight:700; color:var(--text); margin-right:8px }
+.ingredient-chip{ background:#f3f4f6; color:var(--text); padding:6px 10px; border-radius:999px; font-weight:600; margin:4px; display:inline-block }
+.ingredient-chip.found-me{ background: linear-gradient(90deg,#d1fae5,#86efac); color:#065f46 }
+.ingredient-chip.found-other{ background: linear-gradient(90deg,#dbeafe,#bfdbfe); color:#1e3a8a }
+.ingredient-chip.remaining{ background:#eef2f7; color:#374151 }
+.by-who{ font-size:11px; opacity:0.85; margin-left:6px }
+
+/* Avatar styles used in lobby/dashboard/game */
+.avatar{ width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,0.6); box-shadow:0 4px 10px rgba(2,6,23,0.06) }
+
+.avatar[alt]{ background:linear-gradient(90deg,#fff,#f3f4f6) }
+
+/* Scoreboard styles */
+.scoregrid{ display:flex; flex-direction:column; gap:10px; margin-top:12px }
+.score-card{ display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; background: #fff; box-shadow: 0 6px 16px rgba(2,6,23,0.04); }
+.score-card.winner{ background: linear-gradient(90deg,#fff7ed,#fff1d6); border: 1px solid rgba(250,204,21,0.12) }
+.score-card .rank{ font-weight:700; color:#6b7280; min-width:36px; text-align:center }
+.score-card .pname{ font-weight:700; color:var(--text); font-size:16px }
+.score-card .pscore{ margin-left:auto; font-weight:800; font-size:18px; color:#111827 }
+
+/* Play area layout and next-round button */
+.play-area{ display:flex; flex-direction:column; gap:12px; padding:8px }
+.btn.next-round{ align-self:center; margin-top:8px; }
+.btn.next-round:hover{ transform:none; }
+
+/* Scoreboard actions */
+.actions{ display:flex; justify-content:center; margin-top:24px; gap:12px }
+.actions .btn{ min-width:180px }

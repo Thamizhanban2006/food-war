@@ -1,0 +1,141 @@
+/* src/styles/theme.css - Dreamy Pastel Theme */
+:root{
+  --bg: linear-gradient(135deg,#ffe6f2,#fff3e6,#e6fff7,#f0e6ff);
+  --card: rgba(255,255,255,0.9);
+  --accent: #ff88c2;
+  --mint: #b3ffe6;
+  --lavender: #d5c4ff;
+  --text: #3b2b2b;
+  --radius: 16px;
+  --shadow: 0 12px 30px rgba(120,80,120,0.08);
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+/* allow the Game page itself to scroll */
+body.game-page{overflow:auto}
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  background-size: 200% 200%;
+  animation: pastelMove 18s ease infinite;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+@keyframes pastelMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.page{display:flex;align-items:center;justify-content:center;padding:24px;min-height:100vh}
+.card{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  background:var(--card);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  border: 1px solid rgba(255,255,255,0.6);
+  /* let the page control the scroll; no internal height clamp */
+  max-height: none;
+  display:flex;
+  flex-direction:column;
+  overflow: visible;
+}
+
+/* Dashboard */
+.title{font-size:36px;margin:0 0 10px 0}
+.choices{display:flex;gap:14px;justify-content:center;margin:18px 0}
+.btn{padding:10px 16px;border-radius:12px;border: none;background: linear-gradient(90deg,var(--accent),#ffa7d9); color:white; cursor:pointer; box-shadow: 0 10px 24px rgba(255,136,194,0.18); font-weight:600}
+.btn.primary{background: linear-gradient(90deg,var(--accent),#ffa7d9); color:white; box-shadow: 0 10px 24px rgba(255,136,194,0.18)}
+/* Default secondary: soft slate to match pastel UI */
+.btn.secondary{background: linear-gradient(90deg,var(--accent),#ffa7d9); color:white; box-shadow: 0 10px 24px rgba(255,136,194,0.18); padding:10px 18px; min-width:120px; font-weight:700; border:none}
+.btn.secondary:hover,
+.btn.secondary:active,
+.btn.secondary:focus{background: linear-gradient(90deg,var(--accent),#ffa7d9); color:white; box-shadow: 0 10px 24px rgba(255,136,194,0.18); transform:none; outline:none}
+
+/* Alternate secondary variants (pick one by adding the class) */
+.btn.secondary.slate{background: linear-gradient(90deg,#eef2ff,#f7f9fc); color:#1f2937}
+.btn.secondary.peach{background: linear-gradient(90deg,#fff3ea,#fff8f2); color:#6b3b2a}
+.form input{width:100%;padding:12px;margin:8px 0;border-radius:12px;border:1px solid rgba(0,0,0,0.06)}
+
+/* Form action buttons spacing */
+.form .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:8px}
+
+/* Lobby */
+.player-list{list-style:none;padding:0;margin:10px 0}
+.player-list li{background:#fff;padding:10px;border-radius:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 6px 20px rgba(0,0,0,0.03)}
+.lobby-actions{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:12px}
+
+/* Lobby enhancements */
+.lobby .card{ padding:20px 26px; border-radius:18px; position:relative }
+.lobby .card h2{ margin:0 0 12px 0; font-size:22px; display:flex; align-items:center; gap:10px }
+.lobby .card h2:after{ content: ''; flex:1; height:1px; background: linear-gradient(90deg, rgba(0,0,0,0.04), rgba(0,0,0,0.01)); margin-left:12px }
+.player-list{ margin-top:12px }
+.player-entry{ display:flex; gap:12px; align-items:center; padding:10px; background: linear-gradient(180deg, #ffffff, #fbfbff); border-radius:12px; box-shadow: 0 8px 18px rgba(12,20,40,0.04); }
+.player-entry .avatar{ width:48px; height:48px; border-radius:12px; object-fit:cover; border:2px solid rgba(255,255,255,0.6) }
+.player-entry .player-info{ display:flex; flex-direction:column }
+.player-entry .name{ font-weight:700; color:var(--text) }
+.player-entry .you{ font-weight:600; font-size:13px; color:#6b7280; margin-left:6px }
+.player-entry .meta{ font-size:13px; color:#6b7280; margin-top:4px }
+.player-entry .host-badge{ background: linear-gradient(90deg,#fff7ed,#fff3d6); padding:4px 8px; border-radius:999px; font-weight:700; color:#b45309 }
+.player-entry .score{ color:#374151 }
+
+.lobby-settings{ display:flex; gap:16px; align-items:center; justify-content:start; margin-top:14px }
+.lobby-settings .form-row{ display:flex; flex-direction:column; font-weight:600; color:var(--text) }
+.lobby-settings .form-input{ padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06); width:120px }
+
+.lobby-actions{ display:flex; gap:10px; align-items:center; justify-content:flex-end; margin-top:18px }
+.lobby-actions .btn{ min-width:120px }
+
+/* subtle bg accent for lobby */
+.lobby .card::before{ content:''; position:absolute; right:-40px; top:-40px; width:140px; height:140px; background: radial-gradient(circle at 30% 30%, rgba(255,200,230,0.25), transparent 40%); border-radius:50%; pointer-events:none }
+
+/* Game */
+.game-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.right-head{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+
+/* Page-level brand logo in the top-left corner */
+.page.game{ position: relative }
+.app-brand{ position: fixed; top:20px; left:20px; color:var(--text); opacity:0.7; pointer-events:none; user-select:none; z-index:10; display:flex; align-items:center; justify-content:center; }
+.app-brand .brand-name{ font-weight:900; font-size:18px; line-height:1; letter-spacing:-0.5px; margin:0; padding:8px 14px; border:2px solid currentColor; border-radius:8px; background:rgba(255,255,255,0.5); backdrop-filter:blur(4px); box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+.app-brand .brand-tag{ display:none }
+
+/* keep card layered properly */
+.card{ position:relative; z-index:1 }
+.game-flex{display:flex;gap:20px;flex-wrap:nowrap;flex:1;align-items:flex-start;overflow:visible}
+.dish-area{flex:1 1 0;min-width:280px;text-align:center}
+.dish-img{width:100%;max-width:360px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+.dish-placeholder{height:200px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#fff,#fff3);border-radius:12px}
+.play-area{flex:1 1 0;min-width:320px;max-width:none}
+.players-box ul{list-style:none;padding:0}
+.players-box li{padding:10px;margin-bottom:8px;background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.03)}
+.guess-box{display:flex;gap:8px;margin-top:12px}
+.guess-box input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)}
+.ingredient-chip{display:inline-block;padding:8px 12px;border-radius:18px;background:var(--mint);margin:6px}
+
+/* Chat styles */
+.chat-box{ margin-top:12px; background: #fff; border-radius:12px; padding:10px; box-shadow:0 6px 18px rgba(0,0,0,0.03) }
+.chat-messages{ max-height:240px; overflow:auto; display:flex; flex-direction:column; gap:8px; padding:6px }
+.chat-message{ padding:8px 10px; border-radius:10px; background:#f8fafc; }
+.chat-message.me{ background: linear-gradient(90deg,#d1fae5,#86efac); align-self:flex-end }
+.chat-message.other{ background:#f3f4f6; align-self:flex-start }
+.chat-meta{ font-size:12px; color:#6b7280; margin-bottom:4px }
+.chat-text{ font-size:14px; color:var(--text) }
+.chat-input-row{ display:flex; gap:8px; margin-top:8px }
+.chat-input-row input{ flex:1; padding:8px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.06) }
+
+/* Scoreboard */
+.scoregrid{display:flex;flex-direction:column;gap:10px}
+.score-card{display:flex;justify-content:space-between;padding:12px;background:#fff;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.04)}
+.score-card.winner{background:linear-gradient(90deg,#eafff2,#fff9e6);border:2px solid #ffe8a3}
+
+/* small screens */
+@media (max-width:820px){
+  .card{padding:16px}
+  .game-flex{flex-direction:column}
+}

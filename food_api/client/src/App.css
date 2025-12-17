@@ -1,0 +1,7 @@
+/* Add inside your App.css */
+body { background: #f2f6fb; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.App h1 { color: #ff5722; letter-spacing: 1px; }
+button { cursor: pointer; border: none; background: #1976d2; color: white; padding: 8px 12px; border-radius: 8px; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+input { font-size: 14px; }
+.card { background: #fff; }

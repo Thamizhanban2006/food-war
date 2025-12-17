@@ -1,0 +1,17 @@
+/* lobby.css */
+.lobby-root {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.players-section { margin: 16px 0; }
+.players-section ul { list-style:none; padding:0; }
+.players-section li { padding:8px 0; border-bottom:1px solid #f0f0f0; }
+
+.lobby-actions { display:flex; gap:12px; align-items:center; margin-top:12px; }
+.start-btn { background: #ef4444; color:white; padding:10px 14px; border-radius:8px; border:none; }
+.leave-btn { padding:10px 12px; }

@@ -1,0 +1,14 @@
+/* scoreboard.css */
+.scoreboard-root {
+  max-width: 900px;
+  margin: 28px auto;
+  padding: 18px;
+  background: white;
+  border-radius: 12px;
+  text-align:center;
+}
+
+.score-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:18px; }
+.score-card { background:#f8fafc; padding:12px; border-radius:10px; }
+.score-card.winner { background: linear-gradient(90deg,#fde68a,#fca5a5); }
+.back { margin-top:18px; padding:10px 14px; border-radius:8px; }

@@ -1,5 +1,5 @@
 // backend/socket.js
-const Dish = require("./models/Dish");
+const Dish = require("./models/Dish.js");
 const { Server } = require("socket.io");
 const stringSimilarity = require("string-similarity");
 
